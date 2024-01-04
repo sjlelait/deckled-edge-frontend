@@ -1,4 +1,4 @@
-function AlsoKnownAs(props) {
+const AlsoKnownAs = (props) => {
     return <h1>Also Known As</h1>;
 }
 

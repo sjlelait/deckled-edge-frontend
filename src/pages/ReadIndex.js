@@ -1,4 +1,4 @@
-function ReadIndex(props) {
+const ReadIndex = (props) => {
     return <h1>ReadIndex (past Entries)</h1>;
 }
 

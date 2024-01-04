@@ -4,7 +4,7 @@ import Read from '../pages/Read';
 import ReadIndex from '../pages/ReadIndex';
 import AlsoKnownAs from '../pages/AlsoKnownAs';
 
-function Main(props) {
+const Main = (props) => {
     return (
         <main>
             <Routes>

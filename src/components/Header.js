@@ -1,5 +1,9 @@
-function Header(props) {
-    return <h1>Header</h1>;
+const Header = (props) => {
+    return (
+        <header>
+
+        </header>
+    );
 }
 
 export default Header;
