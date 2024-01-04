@@ -5,9 +5,9 @@ const ReadIndex = (props) => {
         return props.entry.map((entry) => (
             <div key={entry._id} className="entry">
                 <Link to={`/read/${entry._id}`}>
-                    <h2>{entry.title}</h2>
+                    <h2 className="text-lg">{entry.title}</h2>
                 </Link>
-                <p>{entry.text}</p>
+                <p className="text-gray-500">{entry.text}</p>
             </div>
         ));
     };

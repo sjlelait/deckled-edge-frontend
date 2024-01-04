@@ -2,11 +2,19 @@ import { Link } from 'react-router-dom';
 
 const Header = (props) => {
     return (
-        <header>
-            <nav className="mx-auto flex items-center justify-between">
-                <Link to="/">
-                    <div>Home</div>
-                </Link>
+        <header className="flex">
+            <nav className="relative">
+                <div className="inline-block items-center">
+                    <Link to="/" className="">
+                        <span className="sr-only">Deckled Edge</span>
+                    </Link>
+                </div>
+                <div className="inline-block items-center">
+                    <Link to="/">
+                        <div>Home</div>
+                    </Link>
+                </div>
+
                 <Link to="/read">
                     <div>Read</div>
                 </Link>
@@ -14,7 +22,7 @@ const Header = (props) => {
                     <div>Also Known As</div>
                 </Link>
             </nav>
-        </header>
+        </header >
     );
 }
 
