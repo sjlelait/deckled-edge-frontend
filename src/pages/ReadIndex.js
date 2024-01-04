@@ -1,5 +1,5 @@
 const ReadIndex = (props) => {
-    return <h1>ReadIndex (past Entries)</h1>;
+    return <h1>Read Index (past Entries)</h1>;
 }
 
 export default ReadIndex;
