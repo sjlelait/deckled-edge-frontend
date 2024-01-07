@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 
 const ReadIndex = (props) => {
     const loaded = () => {
+        console.log('Props entry:', props.entry); // check props data
+        console.log('Props entry length:', props.entry.length); // check the length
         return props.entry.map((entry) => (
             <div key={entry._id} className="entry">
                 <Link to={`/read/${entry._id}`}>
