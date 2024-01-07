@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home';
-import Read from '../pages/Read';
 import ReadIndex from '../pages/ReadIndex';
+import Read from '../pages/Read';
+import Write from '../pages/Write';
 import AlsoKnownAs from '../pages/AlsoKnownAs';
 
 const Main = (props) => {
@@ -25,10 +26,11 @@ const Main = (props) => {
     return (
         <main>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home entry={entry} />} />
                 <Route path="/read" element={<ReadIndex entry={entry} />} />
-                <Route path="/read/:id" element={<Read />} />
-                <Route path="/aka" element={<AlsoKnownAs />} />
+                <Route path="/read/:id" element={<Read entry={entry} />} />
+                <Route path="/write" element={<Write entry={entry} />} />
+                <Route path="/aka" element={<AlsoKnownAs entry={entry} />} />
             </Routes>
         </main>
     );
