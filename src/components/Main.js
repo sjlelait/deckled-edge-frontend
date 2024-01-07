@@ -8,12 +8,14 @@ import AlsoKnownAs from '../pages/AlsoKnownAs';
 
 const Main = (props) => {
     const [entry, setEntry] = useState(null);
-    const API_URL = 'http://localhost:3001/';
+    const API_URL = 'https://deckled-edge-backend-988afb1cc431.herokuapp.com/';
 
     const getEntry = async () => {
         try {
             const response = await fetch(API_URL);
+            console.log('response:', response);
             const data = await response.json();
+            console.log('data:', data);
             setEntry(data);
         } catch (error) {
             console.log('Error fetching data:', error);
