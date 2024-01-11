@@ -12,8 +12,7 @@ const Main = (props) => {
 
     const getEntry = async () => {
         try {
-            const response = await fetch(API_URL);
-            console.log('response:', response);
+            const response = await fetch(`${API_URL}read`);
             const data = await response.json();
             setEntry(data);
         } catch (error) {
