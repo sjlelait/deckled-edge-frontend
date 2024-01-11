@@ -4,7 +4,7 @@ const ReadIndex = (props) => {
     const loaded = () => {
         console.log('Props entry:', props.entry); // check props data
         console.log('Props entry length:', props.entry.length); // check the length
-        return props.entry.map((entry) => (
+        return props.entry.map(entry => (
             <div key={entry._id} className="entry">
                 <Link to={`/read/${entry._id}`}>
                     <h2 className="text-lg">{entry.title}</h2>
@@ -18,7 +18,12 @@ const ReadIndex = (props) => {
         return <h1>Loading...</h1>;
     };
 
-    return props.entry ? loaded() : loading();
+    return (
+        <div>
+            <h1 className="text-lg">My Work</h1>
+            {props.entry ? loaded() : loading()}
+        </div>
+    )
 }
 
 export default ReadIndex;

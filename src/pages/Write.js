@@ -17,6 +17,7 @@ const Write = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         props.createEntry(newForm);
+        console.log('newForm:', newForm);
         setNewForm({
             title: '',
             text: '',
@@ -25,23 +26,26 @@ const Write = (props) => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                value={newForm.title}
-                title="title"
-                placeholder="title"
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                value={newForm.text}
-                title="text"
-                placeholder="text"
-                onChange={handleChange}
-            />
-            <button type="submit">Publish</button>
-        </form>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={newForm.title}
+                    title="title"
+                    placeholder="title"
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    value={newForm.text}
+                    title="text"
+                    placeholder="text"
+                    onChange={handleChange}
+                />
+                <button type="submit">Publish</button>
+            </form>
+        </div>
+
     )
 }
 

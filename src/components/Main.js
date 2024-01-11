@@ -15,7 +15,6 @@ const Main = (props) => {
             const response = await fetch(API_URL);
             console.log('response:', response);
             const data = await response.json();
-            console.log('data:', data);
             setEntry(data);
         } catch (error) {
             console.log('Error fetching data:', error);
@@ -24,7 +23,7 @@ const Main = (props) => {
 
     const createEntry = async (entry) => {
         try {
-            const response = await fetch(API_URL, {
+            const response = await fetch(`${API_URL}read`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
