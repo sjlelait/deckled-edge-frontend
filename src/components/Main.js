@@ -37,6 +37,10 @@ const Main = (props) => {
         }
     };
 
+    /* const updateEntry = async (entry) {
+
+    }
+    */
     useEffect(() => {
         getEntry();
     }, []);

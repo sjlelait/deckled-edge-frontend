@@ -18,7 +18,7 @@ const ReadIndex = (props) => {
 
     return (
         <div>
-            <h1 className="text-lg">My Work</h1>
+            <h1 className="text-lg underline">My Work</h1>
             {props.entry ? loaded() : loading()}
         </div>
     )

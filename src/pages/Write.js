@@ -26,7 +26,8 @@ const Write = (props) => {
 
 
     return (
-        <div>
+        <>
+            <h1 className="text-lg underline">Write</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -44,7 +45,7 @@ const Write = (props) => {
                 />
                 <button type="submit">Publish</button>
             </form>
-        </div>
+        </>
 
     )
 }

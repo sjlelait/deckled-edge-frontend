@@ -18,7 +18,12 @@ const Home = (props) => {
         return <h1>Loading...</h1>;
     };
 
-    return props.entry ? loaded() : loading();
+    return (
+        <div>
+            <h1 className="text-lg underline">Home</h1>
+            {props.entry ? loaded() : loading()}
+        </div>
+    )
 }
 
 export default Home;

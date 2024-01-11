@@ -8,7 +8,7 @@ const Read = (props) => {
     const loaded = () => {
         return (
             <>
-                <h1>{oneEntry.title}</h1>
+                <h1 className="text-lg underline">{oneEntry.title}</h1>
                 <p>{oneEntry.text}</p>
             </>
         );
