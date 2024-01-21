@@ -23,7 +23,7 @@ const Read = (props) => {
             <>
                 <h1 className="text-lg underline">{oneEntry.title}</h1>
                 <p>{oneEntry.text}</p>
-                <Link to={`/write/${id}/edit`}>Edit Entry</Link>
+                <Link className="bg-green-200 shadow-lg rounded-lg" to={`/write/${id}/edit`}> Edit </Link>
                 <button className="bg-red-400 shadow-lg rounded-lg" id="delete" onClick={handleDelete}>
                     DELETE
                 </button>
