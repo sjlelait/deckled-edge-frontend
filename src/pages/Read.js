@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Read = (props) => {
@@ -8,8 +8,14 @@ const Read = (props) => {
     const oneEntry = entry ? entry.find((e) => e._id === id) : null;
 
     const handleDelete = () => {
-        props.deleteEntry(id);
-        navigate('/read');
+        const confirmDelete = window.confirm(`Are you sure you want to delete "${oneEntry.title}"?`);
+
+        if (confirmDelete) {
+            props.deleteEntry(id);
+            navigate('/read');
+        } else {
+            console.log('Deletion Canceled');
+        }
     };
 
     const loaded = () => {
@@ -18,7 +24,7 @@ const Read = (props) => {
                 <h1 className="text-lg underline">{oneEntry.title}</h1>
                 <p>{oneEntry.text}</p>
                 <Link to={`/write/${id}/edit`}>Edit Entry</Link>
-                <button id="delete" onClick={handleDelete}>
+                <button className="bg-red-400 shadow-lg rounded-lg" id="delete" onClick={handleDelete}>
                     DELETE
                 </button>
             </>
