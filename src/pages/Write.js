@@ -13,13 +13,18 @@ const Write = (props) => {
     const [form, setForm] = useState({
         title: '',
         text: '',
+        poem: false,
+        favorite: false,
+        public: false
     });
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { name, value, type, checked } = event.target;
+        const fieldValue = type === 'checkbox' ? checked : value;
+
         setForm((prevForm) => ({
             ...prevForm,
-            [name]: value,
+            [name]: fieldValue,
         }));
     };
 
@@ -36,6 +41,9 @@ const Write = (props) => {
         setForm({
             title: '',
             text: '',
+            poem: false,
+            favorite: false,
+            public: false
         });
     };
 
@@ -65,11 +73,38 @@ const Write = (props) => {
                     placeholder="text"
                     onChange={handleChange}
                 />
-                <button type="submit">{isEditing ? 'Update' : 'Publish'}</button>
+                <label>
+                    Poem:
+                    <input
+                        type="checkbox"
+                        checked={form.poem}
+                        name="poem"
+                        onChange={handleChange}
+                    />
+                </label>
+                <label>
+                    Favorite:
+                    <input
+                        type="checkbox"
+                        checked={form.favorite}
+                        name="favorite"
+                        onChange={handleChange}
+                    />
+                </label>
+                <label>
+                    Public:
+                    <input
+                        type="checkbox"
+                        checked={form.public}
+                        name="public"
+                        onChange={handleChange}
+                    />
+                </label>
+                <button className="text-lg rounded-lg shadow-lg" type="submit">{isEditing ? 'Update' : 'Publish'}</button>
             </form>
         </>
 
-    )
-}
+    );
+};
 
 export default Write;
