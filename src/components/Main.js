@@ -50,6 +50,13 @@ const Main = (props) => {
         }
     };
 
+    const deleteEntry = async (id) => {
+        await fetch(`${API_URL}read/${id}`, {
+            method: 'DELETE',
+        });
+        getEntry();
+    };
+
     useEffect(() => {
         getEntry();
     }, []);
@@ -59,7 +66,7 @@ const Main = (props) => {
             <Routes>
                 <Route path="/" element={<Home entry={entry} />} />
                 <Route path="/read" element={<ReadIndex entry={entry} />} />
-                <Route path="/read/:id" element={<Read entry={entry} />} />
+                <Route path="/read/:id" element={<Read entry={entry} deleteEntry={deleteEntry} />} />
                 <Route path="/write" element={<Write entry={entry} createEntry={createEntry} />} />
                 <Route path="/write/:id/edit" element={<Write entry={entry} updateEntry={updateEntry} />} />
                 <Route path="/aka" element={<AlsoKnownAs entry={entry} />} />
