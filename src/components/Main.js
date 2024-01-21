@@ -22,25 +22,34 @@ const Main = (props) => {
 
     const createEntry = async (entry) => {
         try {
-            const response = await fetch(`${API_URL}read`, {
+            await fetch(`${API_URL}read`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(entry),
             });
-            const data = await response.json();
-            console.log(data);
             getEntry();
         } catch (error) {
             console.log(error);
         }
     };
 
-    /* const updateEntry = async (entry) {
+    const updateEntry = async (id, formData) => {
+        try {
+            await fetch(`${API_URL}read/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            getEntry();
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-    }
-    */
     useEffect(() => {
         getEntry();
     }, []);
@@ -52,6 +61,7 @@ const Main = (props) => {
                 <Route path="/read" element={<ReadIndex entry={entry} />} />
                 <Route path="/read/:id" element={<Read entry={entry} />} />
                 <Route path="/write" element={<Write entry={entry} createEntry={createEntry} />} />
+                <Route path="/write/:id/edit" element={<Write entry={entry} updateEntry={updateEntry} />} />
                 <Route path="/aka" element={<AlsoKnownAs entry={entry} />} />
             </Routes>
         </main>

@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Read = (props) => {
     const { id } = useParams();
@@ -10,6 +11,7 @@ const Read = (props) => {
             <>
                 <h1 className="text-lg underline">{oneEntry.title}</h1>
                 <p>{oneEntry.text}</p>
+                <Link to={`/write/${id}/edit`}>Edit Entry</Link>
             </>
         );
     };
