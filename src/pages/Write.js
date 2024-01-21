@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Write = (props) => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const { entry, createEntry, updateEntry } = props;
 
@@ -25,11 +26,11 @@ const Write = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (isEditing) {
-            console.log('Updating entry with ID:', id);
-            console.log('Form data to be sent:', form);
             updateEntry(id, form);
+            navigate(`/read/${id}`);
         } else {
             createEntry(form);
+            navigate('/read');
         }
 
         setForm({
