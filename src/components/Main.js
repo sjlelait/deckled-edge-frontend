@@ -5,6 +5,7 @@ import ReadIndex from '../pages/ReadIndex';
 import Read from '../pages/Read';
 import Write from '../pages/Write';
 import AlsoKnownAs from '../pages/AlsoKnownAs';
+import WritersBlock from '../pages/WritersBlock';
 
 const Main = (props) => {
     const [entry, setEntry] = useState(null);
@@ -70,6 +71,7 @@ const Main = (props) => {
                 <Route path="/write" element={<Write entry={entry} createEntry={createEntry} />} />
                 <Route path="/write/:id/edit" element={<Write entry={entry} updateEntry={updateEntry} />} />
                 <Route path="/aka" element={<AlsoKnownAs entry={entry} />} />
+                <Route path="/writersblock" element={<WritersBlock entry={entry} />} />
             </Routes>
         </main>
     );
