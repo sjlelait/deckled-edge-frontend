@@ -4,7 +4,7 @@ const Header = (props) => {
     return (
         <header className="flex bg-mainPurple">
             <div className="flex lg:flex-1">
-                <Link to="/" className="flex mr-auto items-center">
+                <Link to="/" className="flex mr-auto items-center ml-4">
                     <div className="font-semibold text-lg">Deckled Edge</div>
                 </Link>
             </div>
@@ -21,12 +21,12 @@ const Header = (props) => {
                 </div>
                 <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
                     <Link to="/aka">
-                        <div>Also Known As</div>
+                        <div>AKA</div>
                     </Link>
                 </div>
                 <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
                     <Link to="/writersblock">
-                        <div>Find Inspiration</div>
+                        <div>Inspiration</div>
                     </Link>
                 </div>
 
