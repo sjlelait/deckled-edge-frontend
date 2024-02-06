@@ -1,23 +1,8 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import Carousel from '../components/Carousel';
 
 const Home = (props) => {
-    const loaded = () => {
-        return props.entry
-            .filter(entry => entry.public === true)
-            .map((entry) => (
-                <div key={entry._id} className="entry_public">
-                    <Link to={`/read/${entry._id}`}>
-                        <h2 className="text-lg">{entry.title}</h2>
-                    </Link>
-                    <p className="text-gray-500">{entry.text}</p>
-                </div>
-            ));
-    };
-
-    const loading = () => {
-        return <h1>Loading...</h1>;
-    };
-
     return (
         <div>
             <div className="mx-auto mt-20 mb-10 flex items-center justify-between">
@@ -40,7 +25,7 @@ const Home = (props) => {
                     Read
                 </Link>
             </div>
-            {props.entry ? loaded() : loading()}
+            {props.entry && <Carousel entry={props.entry} />}
         </div>
     )
 }
