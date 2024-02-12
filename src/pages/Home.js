@@ -5,7 +5,7 @@ import Carousel from '../components/Carousel';
 const Home = (props) => {
     return (
         <>
-            <div className="mx-auto pt-20 pb-10 flex items-center justify-between bg-background">
+            <div className="mx-auto pt-12 pb-12 flex items-center justify-between bg-background">
                 <Link
                     to="/write"
                     className="py-2 px-4 ml-10 bg-white font-semibold rounded-lg shadow-lg hover:bg-mainPurple"
@@ -13,16 +13,16 @@ const Home = (props) => {
                     Write
                 </Link>
                 <Link
-                    to="/aka"
+                    to="/read"
                     className="py-2 px-4 bg-white font-semibold rounded-lg shadow-lg hover:bg-mainPurple"
                 >
-                    Also Known As
+                    Read
                 </Link>
                 <Link
-                    to="/read"
-                    className="py-2 px-4 mr-10 bg-white font-semibold rounded-lg shadow-lg hover:bg-mainPurple"
+                    to="/aka"
+                    className="py-2 px-4 mr-6 bg-white font-semibold rounded-lg shadow-lg hover:bg-mainPurple"
                 >
-                    Read
+                    Also Known As
                 </Link>
             </div>
             {props.entry && <Carousel entry={props.entry} />}
