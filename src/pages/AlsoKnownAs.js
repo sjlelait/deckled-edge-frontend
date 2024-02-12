@@ -1,3 +1,5 @@
+import React from 'react';
+
 const AlsoKnownAs = (props) => {
     return <h1 className="text-lg underline">Also Known As</h1>;
 }
