@@ -27,11 +27,6 @@ const Header = (props) => {
                     </Link>
                 </div>
                 <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
-                    <Link to="/writersblock">
-                        <div>Inspiration</div>
-                    </Link>
-                </div>
-                <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
                     <button onClick={login}>Login</button>
                 </div>
                 <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
