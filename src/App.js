@@ -1,15 +1,22 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
+import { auth } from './firebase';
 import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged(user => setUser(user))
+  }, []);
+
   return (
     <div className="App">
-      <Header />
-      <Main />
-      <Footer />
+      <Header user={user} />
+      <Main user={user} />
+      <Footer user={user} />
     </div >
   );
 }
