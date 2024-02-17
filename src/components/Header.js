@@ -1,4 +1,5 @@
 import React from 'react';
+import { login, logout } from '../firebase';
 import { Link } from 'react-router-dom';
 
 const Header = (props) => {
@@ -30,7 +31,12 @@ const Header = (props) => {
                         <div>Inspiration</div>
                     </Link>
                 </div>
-
+                <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
+                    <button onClick={login}>Login</button>
+                </div>
+                <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
+                    <button onClick={logout}>Logout</button>
+                </div>
             </nav>
         </header >
     );
