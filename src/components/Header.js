@@ -11,27 +11,39 @@ const Header = (props) => {
                 </Link>
             </div>
             <nav className="ml-auto flex max-w-7xl items-center justify-between h-16 p-6 lg:px-6">
-                <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
-                    <Link to="/read">
-                        <div>Read</div>
-                    </Link>
-                </div>
-                <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
-                    <Link to="/write">
-                        <div>Write</div>
-                    </Link>
-                </div>
-                <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
-                    <Link to="/aka">
-                        <div>AKA</div>
-                    </Link>
-                </div>
-                <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
-                    <button onClick={login}>Login</button>
-                </div>
-                <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
-                    <button onClick={logout}>Logout</button>
-                </div>
+                {props.user ?
+
+                    <>
+                        <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
+                            <Link to="/read">
+                                <div>Read</div>
+                            </Link>
+                        </div><div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
+                            <Link to="/write">
+                                <div>Write</div>
+                            </Link>
+                        </div><div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
+                            <Link to="/aka">
+                                <div>AKA</div>
+                            </Link>
+                        </div>
+                        <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
+                            <button onClick={logout}>Logout</button>
+                        </div>
+
+                    </>
+                    :
+                    <>
+                        <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
+                            <Link to="/aka">
+                                <div>AKA</div>
+                            </Link>
+                        </div>
+                        <div className="inline-block items-center hover:shadow-lg hover:rounded-lg p-2">
+                            <button onClick={login}>Login</button>
+                        </div>
+                    </>
+                }
             </nav>
         </header >
     );
