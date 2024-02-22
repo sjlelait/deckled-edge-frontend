@@ -24,10 +24,12 @@ const Main = (props) => {
 
     const createEntry = async (entry) => {
         try {
+            const token = await props.user.getIdToken();
             await fetch(`${API_URL}read`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
                 },
                 body: JSON.stringify(entry),
             });
@@ -37,12 +39,15 @@ const Main = (props) => {
         }
     };
 
+
     const updateEntry = async (id, formData) => {
         try {
+            const token = await props.user.getIdToken();
             await fetch(`${API_URL}read/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
                 },
                 body: JSON.stringify(formData),
             });
@@ -53,8 +58,12 @@ const Main = (props) => {
     };
 
     const deleteEntry = async (id) => {
+        const token = await props.user.getIdToken();
         await fetch(`${API_URL}read/${id}`, {
             method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+            }
         });
         getEntry();
     };
@@ -63,10 +72,11 @@ const Main = (props) => {
         getEntry();
     }, []);
 
+
     return (
         <main>
             <Routes>
-                <Route path="/" element={<Home entry={entry} />} />
+                <Route path="/" element={<Home entry={entry} user={props.user} />} />
                 <Route path="/read" element={<ReadIndex entry={entry} />} />
                 <Route path="/read/:id" element={<Read entry={entry} deleteEntry={deleteEntry} />} />
                 <Route path="/write" element={<Write entry={entry} createEntry={createEntry} />} />

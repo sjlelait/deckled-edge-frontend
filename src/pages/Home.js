@@ -5,7 +5,6 @@ import Carousel from '../components/Carousel';
 const Home = (props) => {
     return (
         <>
-            {console.log(props.user)}
             <div className="mx-auto pt-12 pb-12 flex items-center justify-between bg-background">
                 <Link
                     to="/write"
