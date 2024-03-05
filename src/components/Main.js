@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import ReadIndex from '../pages/ReadIndex';
@@ -10,17 +10,24 @@ import WritersBlock from '../pages/WritersBlock';
 
 const Main = (props) => {
     const [entry, setEntry] = useState(null);
-    const API_URL = 'https://deckled-edge-backend-988afb1cc431.herokuapp.com/';
+    console.log(props.user)
+    const API_URL = 'http://localhost:3001/';
 
-    const getEntry = async () => {
+    const getEntry = useCallback(async () => {
         try {
-            const response = await fetch(`${API_URL}read`);
+            const token = await props.user.getIdToken();
+            const response = await fetch(`${API_URL}read`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                },
+            });
             const data = await response.json();
             setEntry(data);
         } catch (error) {
             console.log('Error fetching data:', error);
         }
-    }
+    }, [props.user]);
 
     const createEntry = async (entry) => {
         try {
@@ -69,8 +76,12 @@ const Main = (props) => {
     };
 
     useEffect(() => {
-        getEntry();
-    }, []);
+        if (props.user) {
+            getEntry();
+        } else {
+            setEntry(null);
+        }
+    }, [props.user, getEntry]);
 
 
     return (
@@ -78,11 +89,11 @@ const Main = (props) => {
             <Routes>
                 <Route path="/" element={<Home entry={entry} user={props.user} />} />
                 <Route path="/read" element={<ReadIndex entry={entry} />} />
-                <Route path="/read/:id" element={<Read entry={entry} deleteEntry={deleteEntry} />} />
-                <Route path="/write" element={<Write entry={entry} createEntry={createEntry} />} />
-                <Route path="/write/:id/edit" element={<Write entry={entry} updateEntry={updateEntry} />} />
-                <Route path="/aka" element={<AlsoKnownAs entry={entry} />} />
-                <Route path="/writersblock" element={<WritersBlock entry={entry} />} />
+                <Route path="/read/:id" element={<Read entry={entry} deleteEntry={deleteEntry} user={props.user} />} />
+                <Route path="/write" element={<Write entry={entry} createEntry={createEntry} user={props.user} />} />
+                <Route path="/write/:id/edit" element={<Write entry={entry} updateEntry={updateEntry} user={props.user} />} />
+                <Route path="/aka" element={<AlsoKnownAs entry={entry} user={props.user} />} />
+                <Route path="/writersblock" element={<WritersBlock entry={entry} user={props.user} />} />
             </Routes>
         </main>
     );
