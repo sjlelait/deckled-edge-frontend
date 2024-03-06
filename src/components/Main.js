@@ -12,6 +12,18 @@ const Main = (props) => {
     const [entry, setEntry] = useState(null);
     const API_URL = 'https://deckled-edge-backend-988afb1cc431.herokuapp.com/';
 
+    const getPublicEntries = async () => {
+        try {
+            const response = await fetch(`${API_URL}`, {
+                method: 'GET',
+            });
+            const data = await response.json();
+            setEntry(data);
+        } catch (error) {
+            console.error('Error fetching public entries:', error);
+        }
+    };
+
     const getEntry = useCallback(async () => {
         try {
             const token = await props.user.getIdToken();
@@ -75,11 +87,7 @@ const Main = (props) => {
     };
 
     useEffect(() => {
-        if (props.user) {
-            getEntry();
-        } else {
-            setEntry(null);
-        }
+        getPublicEntries();
     }, [props.user, getEntry]);
 
 

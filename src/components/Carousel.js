@@ -5,7 +5,8 @@ import { TECarousel, TECarouselItem } from "tw-elements-react";
 
 const Carousel = (props) => {
     console.log(props.entry);
-    const filteredEntries = props.entry.filter((entry) => entry.public === true).slice(0, 3);
+    const filteredEntries = props.entry.filter((entry) => entry.public === true || !props.user).slice(0, 3);
+
 
     const loaded = () => {
         return (
