@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => setUser(user));
     return () => {
-      unsubscribe();
+      unsubscribe(); // clear onAuthStateChanged listner from browser memory
     };
   }, []);
 
