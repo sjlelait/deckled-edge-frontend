@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 const ReadIndex = (props) => {
     const loaded = () => {
-        return props.entry.map(entry => (
+        const userEntries = props.entry.filter(entry => entry.createdBy === props.user.uid);
+
+        return userEntries.map(entry => (
             <div key={entry._id} className="entry">
                 <Link to={`/read/${entry._id}`}>
                     <h2 className="text-lg">{entry.title}</h2>

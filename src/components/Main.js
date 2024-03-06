@@ -95,7 +95,7 @@ const Main = (props) => {
         <main>
             <Routes>
                 <Route path="/" element={<Home entry={entry} user={props.user} />} />
-                <Route path="/read" element={<ReadIndex entry={entry} />} />
+                <Route path="/read" element={<ReadIndex entry={entry} user={props.user} />} />
                 <Route path="/read/:id" element={<Read entry={entry} deleteEntry={deleteEntry} user={props.user} />} />
                 <Route path="/write" element={<Write entry={entry} createEntry={createEntry} user={props.user} />} />
                 <Route path="/write/:id/edit" element={<Write entry={entry} updateEntry={updateEntry} user={props.user} />} />
