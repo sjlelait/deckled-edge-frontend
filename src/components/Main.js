@@ -10,7 +10,6 @@ import WritersBlock from '../pages/WritersBlock';
 
 const Main = (props) => {
     const [entry, setEntry] = useState(null);
-    console.log(props.user)
     const API_URL = 'http://localhost:3001/';
 
     const getEntry = useCallback(async () => {

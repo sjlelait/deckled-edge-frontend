@@ -38,7 +38,7 @@ const Home = (props) => {
                     </>
                 }
             </div>
-            {props.entry && <Carousel entry={props.entry} />}
+            {props.entry && <Carousel entry={props.entry} user={props.user} />}
         </>
     )
 }
