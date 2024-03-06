@@ -30,7 +30,11 @@ function login() {
 };
 
 function logout() {
-    return signOut(auth);
+    return signOut(auth).then(() => {
+        window.location.href = "/";
+    }).catch((error) => {
+        console.error("Logout error:", error);
+    });
 };
 
 // export functionality for access inside of React
