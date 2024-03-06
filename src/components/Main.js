@@ -10,7 +10,7 @@ import WritersBlock from '../pages/WritersBlock';
 
 const Main = (props) => {
     const [entry, setEntry] = useState(null);
-    const API_URL = 'http://localhost:3001/';
+    const API_URL = 'https://deckled-edge-backend-988afb1cc431.herokuapp.com/';
 
     const getEntry = useCallback(async () => {
         try {
